@@ -1,0 +1,16 @@
+package com.resources;
+
+import com.model.Fleet;
+
+rule "Initialize Target Capacity"
+	no-loop true
+	ruleflow-group "initialize"
+	dialect "mvel"
+	when
+		f : Fleet( targetCapacity != f.getCurrentCapacity() )
+	then
+		modify( f ) {
+		    setTargetCapacity( f.getCurrentCapacity() )
+		}
+		System.out.println("initialized Target Capacity");
+end
