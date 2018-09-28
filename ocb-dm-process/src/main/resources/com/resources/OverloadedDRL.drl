@@ -7,8 +7,7 @@ rule "Row 1 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-e297b726-fa8b-490e-acdd-2b6c2420549a" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-e297b726-fa8b-490e-acdd-2b6c2420549a" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}
@@ -20,8 +19,7 @@ rule "Row 2 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}
@@ -33,8 +31,7 @@ rule "Row 3 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-5f3d1af5-fc2c-41b0-95e2-3b895e8adc72" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-5f3d1af5-fc2c-41b0-95e2-3b895e8adc72" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}
@@ -46,8 +43,7 @@ rule "Row 4 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-4aeccf6d-3074-45d8-b7ae-6cb4bdeda4f7" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-4aeccf6d-3074-45d8-b7ae-6cb4bdeda4f7" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}
@@ -59,8 +55,7 @@ rule "Row 5 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-934ec6cc-2731-4802-b208-f04a6c708a99" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-934ec6cc-2731-4802-b208-f04a6c708a99" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}
@@ -72,8 +67,7 @@ rule "Row 6 OverLoaded"
 	ruleflow-group "overloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-6058b2d4-6658-4d54-abe0-0b250253c171" , 
-		                     cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 ,
+		fleetObject : Fleet( id == "sfr-6058b2d4-6658-4d54-abe0-0b250253c171" , isOverload==true ,
 		                     targetCapacity < (fleetObject.getCurrentCapacity()+1) , filter == false )
 	then
 		modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())}

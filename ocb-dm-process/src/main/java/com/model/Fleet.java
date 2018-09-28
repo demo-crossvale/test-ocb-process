@@ -41,8 +41,14 @@ public class Fleet implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("currentCapacity")
 	private java.lang.Integer currentCapacity;
 
-	@org.kie.api.definition.type.Label(value = "priceList")
+	@org.kie.api.definition.type.Label("priceList")
 	private java.util.List<com.model.Price> priceList;
+
+	@org.kie.api.definition.type.Label(value = "isOverload")
+	private java.lang.Boolean isOverload;
+
+	@org.kie.api.definition.type.Label(value = "isUnderload")
+	private java.lang.Boolean isUnderload;
 
 	public Fleet() {
 	}
@@ -143,13 +149,30 @@ public class Fleet implements java.io.Serializable {
 		this.priceList = priceList;
 	}
 
+	public java.lang.Boolean getIsOverload() {
+		return this.isOverload;
+	}
+
+	public void setIsOverload(java.lang.Boolean isOverload) {
+		this.isOverload = isOverload;
+	}
+
+	public java.lang.Boolean getIsUnderload() {
+		return this.isUnderload;
+	}
+
+	public void setIsUnderload(java.lang.Boolean isUnderload) {
+		this.isUnderload = isUnderload;
+	}
+
 	public Fleet(java.lang.String id, java.lang.Integer targetCapacity,
 			java.lang.String name, java.lang.String availabilityZone,
 			java.lang.Integer currentTime, java.lang.Boolean filter,
 			java.lang.String instanceType, java.lang.Integer cpuLoad,
 			java.lang.Integer memoryLoad, java.lang.Integer networkLoad,
 			java.lang.Integer currentCapacity,
-			java.util.List<com.model.Price> priceList) {
+			java.util.List<com.model.Price> priceList,
+			java.lang.Boolean isOverload, java.lang.Boolean isUnderload) {
 		this.id = id;
 		this.targetCapacity = targetCapacity;
 		this.name = name;
@@ -162,6 +185,8 @@ public class Fleet implements java.io.Serializable {
 		this.networkLoad = networkLoad;
 		this.currentCapacity = currentCapacity;
 		this.priceList = priceList;
+		this.isOverload = isOverload;
+		this.isUnderload = isUnderload;
 	}
 
 }

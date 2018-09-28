@@ -2,15 +2,42 @@ package com.resources;
 
 import com.model.Fleet;
 
-rule "Initialize Target Capacity"
-	no-loop true
-	ruleflow-group "initialize"
+rule "InitializeTarget"
 	dialect "mvel"
+	no-loop true
+	lock-on-active true
+	ruleflow-group "initialize"
 	when
-		f : Fleet( targetCapacity != f.getCurrentCapacity() )
+		f : Fleet( targetCapacity != ( f.getCurrentCapacity() ) )
 	then
 		modify( f ) {
-		    setTargetCapacity( f.getCurrentCapacity() )
+				setTargetCapacity( f.getCurrentCapacity() )
 		}
-		System.out.println("initialized Target Capacity");
+		System.out.println("Initialized Target Capacity");
+end
+
+rule "CheckOverload"
+    dialect "mvel"
+	no-loop true
+	ruleflow-group "initialize"
+	when
+		f : Fleet( cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 )
+	then
+		modify( f ) {
+				setIsOverload( true )
+		}
+		System.out.println("Overloaded instance!");
+end
+
+rule "CheckUnderload"
+    dialect "mvel"
+	no-loop true
+	ruleflow-group "initialize"
+	when
+		f : Fleet( cpuLoad < 25, networkLoad < 25, memoryLoad < 25 )
+	then
+		modify( f ) {
+				setIsUnderload( true )
+		}
+		System.out.println("Underloaded instance!");
 end
