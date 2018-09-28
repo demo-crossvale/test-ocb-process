@@ -1,0 +1,6 @@
+target/
+.gitkeep
+.java
+.resources
+.DS_Store
+.processes
